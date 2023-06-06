@@ -22,6 +22,34 @@ The return keyword can be used to return a value from a function.
 Python treats the statements with the same indentation level 
 (statements with an equal number whitespaces before them) as a block of code.
 
+For loops - For loops execute a block of code a fixed number of times.
+You can iterate over a range, string, sequence, etc.
+To count to 10 you can use the range function: 
+    for i in range(1,11):
+        print(i)	
+The first number is inclusive and the second number is exclusive.
+#outputs : 1 2 3 4 5 6 7 8 9 10
+
+You can also use a for loop to iterate over a String.
+Say you have the string credit_card = "1234-5678-9012-3456"
+    for i in credit_card:
+        print(i)
+#outputs : 1 2 3 4 - 5 6 7 8 - 9 0 1 2 - 3 4 5 6
+
+
+While loops - While loops execute a block of code as long as a condition is true.
+    i = 1
+    while i <= 10:
+        print(i)
+        i += 1
+#outputs : 1 2 3 4 5 6 7 8 9 10
+
+If statements - If statements are used to test for a condition and execute a block of code if the condition is true.
+    if 1 < 2:
+        print('1 is less than 2')
+#outputs : 1 is less than 2
+
+
 Underscores have a meaning in python variable and method names.
 Some of that meaning is merely by convention and intended as a hint to the programmer and som of it is enforced by the python interpreter.
 

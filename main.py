@@ -11,6 +11,8 @@ pygame.display.set_caption("Platformer") # set window title
 
 class Player(pygame.sprite.Sprite): 
     COLOR = (255, 0, 0) # player color
+    GRAVITY = 1 # gravity constant
+
     
     def __init__(self,x,y,width,height):
         self.rect = pygame.Rect(x,y,width,height) # create rect
@@ -19,6 +21,7 @@ class Player(pygame.sprite.Sprite):
         self.mask = None # mask for collision
         self.direction =  "left" # direction player is facing
         self.animation_count = 0 # current animation frame
+        self.fall_count = 0 # current fall frame, how long we have been falling 
 
 
     def move(self, dx, dy):
@@ -38,7 +41,10 @@ class Player(pygame.sprite.Sprite):
             self.animation_count = 0
 
     def loop(self,fps):
+        self.y_vel += min(1, (self.fall_count / fps) * self.GRAVITY) 
         self.move(self.x_vel, self.y_vel) # move player
+        self.fall_count += 1 # increment fall count
+
     
     def draw(self,win):
         pygame.draw.rect(win, self.COLOR, self.rect) # draw player
